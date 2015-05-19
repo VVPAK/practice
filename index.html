@@ -2,9 +2,37 @@
 <html>
 
 <head>
-	<script type="text/javascript" src = "script.js"></script>
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<title></title>
+	
+	<style type = "text/css">
+		table {
+			border: 1px solid black;
+			width: 100%;
+
+		}
+
+	</style>
+
+	<script type="text/javascript">
+		function generateTable() {
+			var col = parseInt(document.getElementById("col").value);
+			var row = parseInt(document.getElementById("row").value);
+			
+			var body = document.body;
+			var table = document.createElement("table");
+
+			for (var i = 0; i < row; i++) {
+				var tr = table.insertRow();
+				for (var j = 0; j < col; j++) {
+					var td = tr.insertCell();
+					td.appendChild(document.createTextNode('Cell #' + ' ' + (i * col + j + 1)));
+				}
+			}
+
+			body.appendChild(table);
+		}
+	</script>
+
+	<title>Table generator</title>
 </head>
 
 <body>
